@@ -201,7 +201,7 @@ class ResultScreen extends ConsumerWidget {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("Result"),
+          title: const Text("Result",style: TextStyle(color: Colors.white),),
           backgroundColor: Colors.transparent, // important
           elevation: 0, // shadow hata do clean look ke liye
 
@@ -230,7 +230,7 @@ class ResultScreen extends ConsumerWidget {
                 Text(
                   "Score: $score / ${questions.length}",
                   style: const TextStyle(
-                    fontSize: 24,
+                    fontSize: 24,color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
