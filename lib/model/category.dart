@@ -19,16 +19,19 @@ class CategoryModel {
   }
 }
 class SubCategoryModel {
+  final String id;
   final String name;
   final List<QuestionModel> questions;
 
   SubCategoryModel({
+    required this.id,
     required this.name,
     required this.questions,
   });
 
   factory SubCategoryModel.fromJson(Map<String, dynamic> json) {
     return SubCategoryModel(
+      id: json['id'],
       name: json['name'],
       questions: (json['questions'] as List)
           .map((q) => QuestionModel.fromJson(q))
@@ -45,11 +48,11 @@ class SubCategoryModel {
       final ans = answers.firstWhere(
             (a) =>
         a.questionId == q.id &&
-            a.subCategoryName == sub.name,
+            a.subCategoryId == sub.id,
         orElse: () => SelectedAnswer(
           questionId: '',
           selectedIndex: -1,
-          subCategoryName: '',
+          subCategoryId: '',
         ),
       );
 

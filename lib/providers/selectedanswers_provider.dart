@@ -33,12 +33,12 @@ final questionsProvider = Provider<List<QuestionModel>>((ref) {
 class SelectedAnswer {
   final String questionId;
   final int selectedIndex;
-  final String subCategoryName;
+  final String subCategoryId; // ✅ CHANGE
 
   SelectedAnswer({
     required this.questionId,
     required this.selectedIndex,
-    required this.subCategoryName,
+    required this.subCategoryId,
   });
 }
 
@@ -47,13 +47,13 @@ class SelectedAnswer {
 /// =============================
 class SelectedAnswersNotifier extends StateNotifier<List<SelectedAnswer>> {
   SelectedAnswersNotifier() : super([]);
-  void chooseAnswer(String questionId, int selectedIndex, String subCategoryName) {
+  void chooseAnswer(String questionId, int selectedIndex, String subCategoryId) {
     state = [
       ...state,
       SelectedAnswer(
         questionId: questionId,
         selectedIndex: selectedIndex,
-        subCategoryName: subCategoryName,
+        subCategoryId: subCategoryId, // ✅
       ),
     ];
 
@@ -61,12 +61,12 @@ class SelectedAnswersNotifier extends StateNotifier<List<SelectedAnswer>> {
     debugPrint("--------- ANSWER ADDED ---------");
     debugPrint("QuestionId: $questionId");
     debugPrint("Selected Index: $selectedIndex");
-    debugPrint("SubCategory: $subCategoryName");
+    debugPrint("SubCategory: $subCategoryId");
 
     /// पूरा state print
     for (var a in state) {
       debugPrint(
-          "Q: ${a.questionId}, Ans: ${a.selectedIndex}, Sub: ${a.subCategoryName}");
+          "Q: ${a.questionId}, Ans: ${a.selectedIndex}, Sub: ${a.subCategoryId}");
     }
 
     debugPrint("Total Answers: ${state.length}");

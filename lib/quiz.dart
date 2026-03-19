@@ -15,46 +15,8 @@ class Quiz extends ConsumerStatefulWidget {
 class _QuizState extends ConsumerState<Quiz> {
   String activeScreen = 'start_screen';
 
-  /// START → CATEGORY
-  void goToCategory() {
-    setState(() {
-      activeScreen = 'category_screen';
-    });
-  }
-
-  /// CATEGORY → QUIZ
-  void startQuiz() {
-    setState(() {
-      activeScreen = 'question_screen';
-    });
-  }
-
-  /// QUIZ → RESULT
-  void showResult() {
-    final selectedAnswers = ref.read(selectedAnswersProvider);
-    final questions = ref.read(questionsProvider);
-
-    if (selectedAnswers.length == questions.length) {
-      setState(() {
-        activeScreen = 'result_screen';
-      });
-    }
-  }
-
-  /// RESET ALL
-  void restart() {
-    ref.read(selectedAnswersProvider.notifier).restart();
-    ref.read(selectedCategoryProvider.notifier).state = null;
-
-    setState(() {
-      activeScreen = 'start_screen';
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    Widget screen;
-
     return Scaffold(
       body: CategoryScreen(),
     );

@@ -42,7 +42,7 @@ class _QuestionState extends ConsumerState<QuestionScreen> {
     ref.read(selectedAnswersProvider.notifier).chooseAnswer(
       currentQuestion.id,
       selectedIndex,
-      subCategory!.name, // ✅ now safe
+      subCategory!.id,
     );
 
     /// NEXT / RESULT
@@ -200,91 +200,113 @@ class ResultScreen extends ConsumerWidget {
         return false;
       },
       child: Scaffold(
-        appBar: AppBar(title: const Text("Result")),
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              /// ✅ SCORE
-              Text(
-                "Score: $score / ${questions.length}",
-                style: const TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
+        appBar: AppBar(
+          title: const Text("Result"),
+          backgroundColor: Colors.transparent, // important
+          elevation: 0, // shadow hata do clean look ke liye
+
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Colors.blue.shade800,
+                  Colors.purple.shade800,
+                ],
               ),
+            ),
+          ),
+        ),
+        body: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.blue.shade800, Colors.purple.shade800],
+            ),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              children: [
+                /// ✅ SCORE
+                Text(
+                  "Score: $score / ${questions.length}",
+                  style: const TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
 
-              const SizedBox(height: 20),
+                const SizedBox(height: 20),
 
-              /// ✅ LIST
-              Expanded(
-                child: ListView.builder(
-                  itemCount: questions.length,
-                  itemBuilder: (context, index) {
-                    final question = questions[index];
+                /// ✅ LIST
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: questions.length,
+                    itemBuilder: (context, index) {
+                      final question = questions[index];
 
-                    /// ✅ GET ANSWER FROM MAP
-                    final answer = answerMap[question.id];
-                    final selectedAnswerIndex = answer?.selectedIndex;
+                      /// ✅ GET ANSWER FROM MAP
+                      final answer = answerMap[question.id];
+                      final selectedAnswerIndex = answer?.selectedIndex;
 
-                    final isCorrect =
-                        selectedAnswerIndex == question.correctAnswerIndex;
+                      final isCorrect =
+                          selectedAnswerIndex == question.correctAnswerIndex;
 
-                    return Card(
-                      color: isCorrect
-                          ? Colors.green[50]
-                          : Colors.red[50],
-                      margin: const EdgeInsets.symmetric(vertical: 6),
-                      child: ListTile(
-                        title: Text(question.question),
-                        subtitle: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              selectedAnswerIndex != null
-                                  ? "Your answer: ${question.options[selectedAnswerIndex]}"
-                                  : "You didn't answer this question",
-                              style: TextStyle(
-                                color: isCorrect
-                                    ? Colors.green
-                                    : Colors.red,
-                                fontWeight: FontWeight.w500,
+                      return Card(
+                        color: isCorrect
+                            ? Colors.green[50]
+                            : Colors.red[50],
+                        margin: const EdgeInsets.symmetric(vertical: 6),
+                        child: ListTile(
+                          title: Text(question.question),
+                          subtitle: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                selectedAnswerIndex != null
+                                    ? "Your answer: ${question.options[selectedAnswerIndex]}"
+                                    : "You didn't answer this question",
+                                style: TextStyle(
+                                  color: isCorrect
+                                      ? Colors.green
+                                      : Colors.red,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
-                            ),
-                            const SizedBox(height: 4),
-                            Text(
-                              "Correct answer: ${question.options[question.correctAnswerIndex]}",
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
+                              const SizedBox(height: 4),
+                              Text(
+                                "Correct answer: ${question.options[question.correctAnswerIndex]}",
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                    );
-                  },
+                      );
+                    },
+                  ),
                 ),
-              ),
 
-              const SizedBox(height: 10),
+                const SizedBox(height: 10),
 
-              /// ✅ RESTART BUTTON
-              // ElevatedButton(
-              //   onPressed: () {
-              //     /// answers reset (optional but recommended)
-              //     ref.read(selectedAnswersProvider.notifier).restart();
-              //
-              //     /// back to Category
-              //     Navigator.pushAndRemoveUntil(
-              //       context,
-              //       MaterialPageRoute(
-              //           builder: (_) => const CategoryScreen()),
-              //           (route) => false,
-              //     );
-              //   },
-              //   child: const Text("Restart Quiz"),
-              // ),
-            ],
+                /// ✅ RESTART BUTTON
+                // ElevatedButton(
+                //   onPressed: () {
+                //     /// answers reset (optional but recommended)
+                //     ref.read(selectedAnswersProvider.notifier).restart();
+                //
+                //     /// back to Category
+                //     Navigator.pushAndRemoveUntil(
+                //       context,
+                //       MaterialPageRoute(
+                //           builder: (_) => const CategoryScreen()),
+                //           (route) => false,
+                //     );
+                //   },
+                //   child: const Text("Restart Quiz"),
+                // ),
+              ],
+            ),
           ),
         ),
       ),

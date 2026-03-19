@@ -20,11 +20,11 @@ class CategoryScreen extends ConsumerWidget {
         final ans = answers.firstWhere(
               (a) =>
           a.questionId == q.id &&
-              a.subCategoryName == sub.name,
+              a.subCategoryId == sub.id,
           orElse: () => SelectedAnswer(
             questionId: '',
             selectedIndex: -1,
-            subCategoryName: '',
+            subCategoryId: '',
           ),
         );
 
@@ -55,11 +55,11 @@ class CategoryScreen extends ConsumerWidget {
           final ans = answers.firstWhere(
                 (a) =>
             a.questionId == q.id &&
-                a.subCategoryName == sub.name,
+                a.subCategoryId == sub.id,
             orElse: () => SelectedAnswer(
               questionId: '',
               selectedIndex: -1,
-              subCategoryName: '',
+              subCategoryId: '',
             ),
           );
 
@@ -246,11 +246,11 @@ class SubCategoryScreen extends ConsumerWidget {
       final ans = answers.firstWhere(
             (a) =>
         a.questionId == q.id &&
-            a.subCategoryName == sub.name,
+            a.subCategoryId == sub.id,
         orElse: () => SelectedAnswer(
           questionId: '',
           selectedIndex: -1,
-          subCategoryName: '',
+          subCategoryId: '',
         ),
       );
 
