@@ -16,7 +16,7 @@ void main() async {
     const ProviderScope(
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Quiz(),
+        home: StartQuizScreen(),
       ),
     ),
   );

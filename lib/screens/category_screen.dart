@@ -83,7 +83,30 @@ class CategoryScreen extends ConsumerWidget {
 
     return completedCategories;
   }
+  IconData getCategoryIcon(String category) {
+    switch (category.toLowerCase()) {
+      case "technical":
+        return Icons.computer;
 
+      case "historical":
+        return Icons.history_edu;
+
+      case "gk":
+        return Icons.public;
+
+      case "maths":
+        return Icons.calculate;
+
+      case "science":
+        return Icons.science;
+
+      case "agriculture":
+        return Icons.agriculture;
+
+      default:
+        return Icons.quiz;
+    }
+  }
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final categoryAsync = ref.watch(categoryProvider);
@@ -136,6 +159,7 @@ class CategoryScreen extends ConsumerWidget {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
+                    const SizedBox(height: 20),
 
                     /// GRID
                     Expanded(
@@ -174,8 +198,8 @@ class CategoryScreen extends ConsumerWidget {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  const Icon(
-                                    Icons.quiz,
+                                  Icon(
+                                    getCategoryIcon(cat.category),
                                     size: 50,
                                     color: Colors.white,
                                   ),

@@ -44,7 +44,7 @@
     "subCategories": [
       {
         "id": "hist_indian",
-        "name": "indian_history",
+        "name": "Indian History",
         "questions": [
           { "id": "h1", "question": "Who was first Prime Minister of India?", "options": ["Gandhi", "Nehru", "Patel", "Bose"], "correctAnswerIndex": 1 },
           { "id": "h2", "question": "India got independence in?", "options": ["1945", "1946", "1947", "1950"], "correctAnswerIndex": 2 },
@@ -67,7 +67,7 @@
     "subCategories": [
       {
         "id": "gk_world",
-        "name": "world_gk",
+        "name": "World Gk",
         "questions": [
           { "id": "g1", "question": "Largest ocean?", "options": ["Atlantic", "Indian", "Pacific", "Arctic"], "correctAnswerIndex": 2 },
           { "id": "g2", "question": "Capital of USA?", "options": ["New York", "Washington DC", "Los Angeles", "Chicago"], "correctAnswerIndex": 1 },
@@ -90,7 +90,7 @@
     "subCategories": [
       {
         "id": "math_basic",
-        "name": "basic_math",
+        "name": "Basic Math",
         "questions": [
           { "id": "m1", "question": "5+3=?", "options": ["5", "7", "8", "9"], "correctAnswerIndex": 2 },
           { "id": "m2", "question": "10-4=?", "options": ["5", "6", "7", "8"], "correctAnswerIndex": 1 },
@@ -113,7 +113,7 @@
     "subCategories": [
       {
         "id": "sci_physics",
-        "name": "physics",
+        "name": "Physics",
         "questions": [
           { "id": "s1", "question": "Unit of Force?", "options": ["Pascal", "Newton", "Joule", "Watt"], "correctAnswerIndex": 1 },
           { "id": "s2", "question": "Speed=?", "options": ["D/T", "T/D", "F/M", "M/V"], "correctAnswerIndex": 0 },
@@ -136,7 +136,7 @@
     "subCategories": [
       {
         "id": "agri_crops",
-        "name": "crops",
+        "name": "Crops",
         "questions": [
           { "id": "a1", "question": "Rice grows best in?", "options": ["Dry", "Flooded", "Desert", "Snow"], "correctAnswerIndex": 1 },
           { "id": "a2", "question": "Wheat season?", "options": ["Winter", "Rainy", "Summer", "All"], "correctAnswerIndex": 0 },
