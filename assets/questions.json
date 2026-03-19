@@ -1,0 +1,210 @@
+[
+  {
+    "category": "technical",
+    "subCategories": [
+      {
+        "name": "flutter",
+        "questions": [
+          {
+            "id": "t1",
+            "question": "What is Flutter?",
+            "options": ["SDK", "Language", "IDE", "DB"],
+            "correctAnswerIndex": 0
+          },
+          {
+            "id": "t2",
+            "question": "Flutter uses which language?",
+            "options": ["Java", "Dart", "Kotlin", "Swift"],
+            "correctAnswerIndex": 1
+          },
+          {
+            "id": "t3",
+            "question": "Flutter is developed by?",
+            "options": ["Apple", "Facebook", "Google", "Microsoft"],
+            "correctAnswerIndex": 2
+          },
+          {
+            "id": "t7",
+            "question": "What is a Widget in Flutter?",
+            "options": ["UI element", "Database", "API", "Server"],
+            "correctAnswerIndex": 0
+          },
+          {
+            "id": "t8",
+            "question": "Which widget is used for layout in Flutter?",
+            "options": ["Container", "Scaffold", "Row", "All of these"],
+            "correctAnswerIndex": 3
+          }
+        ]
+      },
+      {
+        "name": "java",
+        "questions": [
+          {
+            "id": "t4",
+            "question": "Java is?",
+            "options": ["OS", "Programming Language", "Database", "Browser"],
+            "correctAnswerIndex": 1
+          },
+          {
+            "id": "t5",
+            "question": "Java supports?",
+            "options": ["OOP", "Only Procedural", "Only Functional", "None"],
+            "correctAnswerIndex": 0
+          },
+          {
+            "id": "t6",
+            "question": "Java code runs on?",
+            "options": ["Compiler", "JVM", "Kernel", "RAM"],
+            "correctAnswerIndex": 1
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "category": "historical",
+    "subCategories": [
+      {
+        "name": "indian_history",
+        "questions": [
+          {
+            "id": "h1",
+            "question": "Who was first Prime Minister of India?",
+            "options": ["Gandhi", "Nehru", "Patel", "Bose"],
+            "correctAnswerIndex": 1
+          },
+          {
+            "id": "h2",
+            "question": "India got independence in?",
+            "options": ["1945", "1946", "1947", "1950"],
+            "correctAnswerIndex": 2
+          },
+          {
+            "id": "h3",
+            "question": "Who built Taj Mahal?",
+            "options": ["Akbar", "Shah Jahan", "Babur", "Humayun"],
+            "correctAnswerIndex": 1
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "category": "gk",
+    "subCategories": [
+      {
+        "name": "world_gk",
+        "questions": [
+          {
+            "id": "g1",
+            "question": "Largest ocean?",
+            "options": ["Atlantic", "Indian", "Pacific", "Arctic"],
+            "correctAnswerIndex": 2
+          },
+          {
+            "id": "g2",
+            "question": "Capital of USA?",
+            "options": ["New York", "Washington DC", "Los Angeles", "Chicago"],
+            "correctAnswerIndex": 1
+          },
+          {
+            "id": "g3",
+            "question": "Which planet is known as Red Planet?",
+            "options": ["Earth", "Mars", "Venus", "Jupiter"],
+            "correctAnswerIndex": 1
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "category": "maths",
+    "subCategories": [
+      {
+        "name": "basic_math",
+        "questions": [
+          {
+            "id": "m1",
+            "question": "5 + 3 = ?",
+            "options": ["5", "7", "8", "9"],
+            "correctAnswerIndex": 2
+          },
+          {
+            "id": "m2",
+            "question": "10 - 4 = ?",
+            "options": ["5", "6", "7", "8"],
+            "correctAnswerIndex": 1
+          },
+          {
+            "id": "m3",
+            "question": "2 x 3 = ?",
+            "options": ["5", "6", "7", "8"],
+            "correctAnswerIndex": 1
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "category": "science",
+    "subCategories": [
+      {
+        "name": "physics",
+        "questions": [
+          {
+            "id": "s1",
+            "question": "Unit of Force?",
+            "options": ["Pascal", "Newton", "Joule", "Watt"],
+            "correctAnswerIndex": 1
+          },
+          {
+            "id": "s2",
+            "question": "Speed = ?",
+            "options": ["Distance/Time", "Time/Distance", "Force/Mass", "Mass/Volume"],
+            "correctAnswerIndex": 0
+          },
+          {
+            "id": "s3",
+            "question": "Gravity is?",
+            "options": ["Force", "Energy", "Matter", "Light"],
+            "correctAnswerIndex": 0
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "category": "agriculture",
+    "subCategories": [
+      {
+        "name": "crops",
+        "questions": [
+          {
+            "id": "a1",
+            "question": "Rice grows best in?",
+            "options": ["Dry soil", "Flooded fields", "Desert", "Snow"],
+            "correctAnswerIndex": 1
+          },
+          {
+            "id": "a2",
+            "question": "Wheat is grown in?",
+            "options": ["Winter season", "Rainy season", "Summer only", "All seasons"],
+            "correctAnswerIndex": 0
+          },
+          {
+            "id": "a3",
+            "question": "Green Revolution relates to?",
+            "options": ["Industry", "Agriculture", "Space", "IT"],
+            "correctAnswerIndex": 1
+          }
+        ]
+      }
+    ]
+  }
+]
