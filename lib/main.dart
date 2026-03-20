@@ -5,6 +5,7 @@ import 'package:quiz_app/auth/login.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:quiz_app/quiz.dart';
 import 'package:quiz_app/screens/category_screen.dart';
+import 'package:quiz_app/utils/prefs_service.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -12,6 +13,8 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await PrefsService.init();
+
   runApp(
     const ProviderScope(
       child: MaterialApp(
