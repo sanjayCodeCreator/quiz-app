@@ -5,108 +5,10 @@ import 'package:quiz_app/screens/question_screen.dart';
 
 import '../model/category.dart';
 import '../providers/selectedanswers_provider.dart';
+import '../utils/progress_utils.dart';
 
 class CategoryScreen extends ConsumerWidget {
   const CategoryScreen( {super.key});
-
-
-  int getCompletedSubCategories(CategoryModel category, List<SelectedAnswer> answers,) {
-    int completed = 0;
-    for (var sub in category.subCategories) {
-      int correct = 0;
-      int total = sub.questions.length;
-
-      for (var q in sub.questions) {
-        final ans = answers.firstWhere(
-              (a) =>
-          a.questionId == q.id &&
-              a.subCategoryId == sub.id,
-          orElse: () => SelectedAnswer(
-            questionId: '',
-            selectedIndex: -1,
-            subCategoryId: '',
-          ),
-        );
-
-        if (ans.selectedIndex == q.correctAnswerIndex) {
-          correct++;
-        }
-      }
-
-      double percentage = total == 0 ? 0 : (correct / total) * 100;
-
-      if (percentage >= 60) {
-        completed++;
-      }
-    }
-    return completed;
-  }
-  int getCompletedCategories(List<CategoryModel> categories, List<SelectedAnswer> answers,) {
-    int completedCategories = 0;
-
-    for (var cat in categories) {
-      int completedSub = 0;
-
-      for (var sub in cat.subCategories) {
-        int correct = 0;
-        int total = sub.questions.length;
-
-        for (var q in sub.questions) {
-          final ans = answers.firstWhere(
-                (a) =>
-            a.questionId == q.id &&
-                a.subCategoryId == sub.id,
-            orElse: () => SelectedAnswer(
-              questionId: '',
-              selectedIndex: -1,
-              subCategoryId: '',
-            ),
-          );
-
-          if (ans.selectedIndex == q.correctAnswerIndex) {
-            correct++;
-          }
-        }
-
-        double percentage = total == 0 ? 0 : (correct / total) * 100;
-
-        if (percentage >= 60) {
-          completedSub++;
-        }
-      }
-
-      /// ✅ category complete check
-      if (completedSub == cat.subCategories.length) {
-        completedCategories++;
-      }
-    }
-
-    return completedCategories;
-  }
-  IconData getCategoryIcon(String category) {
-    switch (category.toLowerCase()) {
-      case "technical":
-        return Icons.computer;
-
-      case "historical":
-        return Icons.history_edu;
-
-      case "gk":
-        return Icons.public;
-
-      case "maths":
-        return Icons.calculate;
-
-      case "science":
-        return Icons.science;
-
-      case "agriculture":
-        return Icons.agriculture;
-
-      default:
-        return Icons.quiz;
-    }
-  }
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final categoryAsync = ref.watch(categoryProvider);
