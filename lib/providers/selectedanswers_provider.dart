@@ -47,30 +47,26 @@ class SelectedAnswer {
 /// =============================
 class SelectedAnswersNotifier extends StateNotifier<List<SelectedAnswer>> {
   SelectedAnswersNotifier() : super([]);
+
   void chooseAnswer(String questionId, int selectedIndex, String subCategoryId) {
+    /// ❌ remove old answer of same question
+    state = state.where((a) => a.questionId != questionId).toList();
+
+    /// ✅ add new answer
     state = [
       ...state,
       SelectedAnswer(
         questionId: questionId,
         selectedIndex: selectedIndex,
-        subCategoryId: subCategoryId, // ✅
+        subCategoryId: subCategoryId,
       ),
     ];
 
-    /// ✅ DEBUG PRINT (बस data dekhne ke liye)
-    debugPrint("--------- ANSWER ADDED ---------");
-    debugPrint("QuestionId: $questionId");
-    debugPrint("Selected Index: $selectedIndex");
-    debugPrint("SubCategory: $subCategoryId");
-
-    /// पूरा state print
+    /// DEBUG
+    debugPrint("UPDATED ANSWERS:");
     for (var a in state) {
-      debugPrint(
-          "Q: ${a.questionId}, Ans: ${a.selectedIndex}, Sub: ${a.subCategoryId}");
+      debugPrint("Q: ${a.questionId}, Ans: ${a.selectedIndex}");
     }
-
-    debugPrint("Total Answers: ${state.length}");
-    debugPrint("--------------------------------");
   }
   void restart() {
     state = [];
